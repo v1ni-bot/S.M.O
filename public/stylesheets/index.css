@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+
+    height: 100vh;
+    background-color: black;
+    background-image: url(../images/tec.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header{
+    background-image: linear-gradient(to left, darkcyan, rgb(0, 209, 209));
+    padding: 20px 30px;
+    box-shadow: 0 0 10px black;
+}
+
+nav{
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    right: 5px;
+    margin-right: 10px;
+    list-style: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+#title{
+    display: inline-block;
+    font-size: 3vh;
+}
+
+#subtitle{
+    display: inline-block;
+    padding-left:20px;
+    font-size: 2vh;
+}
+
+.logo{
+
+    max-width: 80px;
+
+}
+
+@media(max-width: 840px){
+    header{
+        padding: 20px 20px;
+    }
+
+    #title{
+        padding: 10px 10px;
+    }
+
+    #subtitle{
+        display: none;
+    }
+
+    .logo{
+        width: 40px;
+        margin-top: 10px;
+    }
+
+}
+
+
+main{
+    position: relative;
+    height: 90vh;
+}
+main #container{
+    max-width: 600px;
+    min-width: none;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: whitesmoke;
+    border: 1px solid darkcyan;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#or{
+    display: block;
+    margin: auto;
+}
+section{
+    border: 1px solid darkcyan;
+    padding: 20px;
+    display: block;
+    margin: 0px;
+}
+
+#login{
+    border-radius: 20px 20px 0 0;
+}
+
+#register{
+    border-radius: 0 0 20px 20px;
+}
+
+#login input, button, h1{
+    display: block;
+    padding: 10px 20px;
+    margin: 5px auto;
+    
+}
+
+#register input, button, h1{
+    display: block;
+    padding: 10px 20px;
+    margin: 5px auto;
+}
+
+section h1{
+    font-size: 2.5vh;
+}
+
+section input{
+    border: none;
+    background-color: cyan;
+    border-radius: 2px;
+}
+
+section input:hover{
+    border: 2px solid white;
+    transition-duration: .2s;
+}
+
+section button{
+    background-color: darkcyan;
+    border: none;
+    border-radius: 2px;
+    margin-top: 10px;
+    
+}
+
+section button:hover{
+    background-color: cyan;
+    transition-duration: 1s;
+}
+
+
+footer{
+    background-color: darkcyan;
+    text-align: center;
+}

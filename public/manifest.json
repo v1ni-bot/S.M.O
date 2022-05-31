@@ -1,0 +1,21 @@
+{
+  "name": "Sistema de Manutenção e Ocorrências",
+  "short_name": "S.M.O",
+  "description": "Um sistema para auxiliar na comunicação interna da ETEC da Zona Leste, visando a solução de problemas internos da escola.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#008b8b",
+  "background_color": "#008b8b",
+  "icons": [
+    {
+      "src": "icon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

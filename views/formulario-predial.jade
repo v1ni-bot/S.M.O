@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suporte Predial</title>
+<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg bg-darkcyan">
+<div class="container-fluid">
+<h1 class="navbar-brand">S.M.O</h1>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="/menu-admin">Menu</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/meus-chamados">Chamados</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/minha-conta">Conta</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/chat">Chat</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">Sair</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</header>
+<main>
+<h1 id="title2">Manutenção Predial</h1>
+<section id="formulario">
+<h1>Por favor, preencha os dados do seu problema</h1>
+<form>
+<label for="predio">Para começar, por favor nos diga, em que prédio você está?</label>
+<select name="" id="predio" required>
+<option value="">Prédio Administrativo</option>
+<option value="">Biblioteca</option>
+<option value="">Anexo</option>
+<option value="">Bloco A</option>
+<option value="">Bloco B</option>
+<option value="">Bloco C</option>
+<option value="">Auditório</option>
+<option value="">Pátio</option>
+<option value="" disabled selected>Selecione</option>
+</select>
+<label for="local">Qual local desse prédio?</label>
+<select name="" id="local" required>
+<option value="" selected disabled>Selecione</option>
+</select>
+<label for="problema">Que tipo de problema você precisa de ajuda?</label>
+<select name="" id="problema" required>
+<option value="">Elétrico</option>
+<option value="">Hidráulico</option>
+<option value="">Estrutura</option>
+<option value="">Portas</option>
+<option value="">Janelas</option>
+<option value="">Limpeza</option>
+<option value="">Pintura ou Acabamento</option>
+<option value="">Segurança</option>
+<option value="" disabled selected>Selecione</option>
+</select>
+<label for="prioridade">Se pudesse classificar o nível da emergência, qual seria?</label>
+<select name="" id="prioridade" required>
+<option value="">Alta</option>
+<option value="">Média</option>
+<option value="">Baixa</option>
+<option value="" selected disabled>Selecione</option>
+</select>
+<label for="descricao">Caso queira, sinta-se a vontade para adicionar uma breve descrição do seu problema.</label>
+<input type="text" name="" id="descricao" placeholder="Escreva aqui">
+<label for="img">Caso queira, sinta-se a vontade para adicionar uma imagem.</label>
+<input type="file" name="" id="">
+<button type="button">Solicitar Manutenção</button>
+</form>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Conta</title>
+<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg bg-darkcyan">
+<div class="container-fluid">
+<h1 class="navbar-brand">S.M.O</h1>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="/menu-admin">Menu</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/meus-chamados">Chamados</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/minha-conta">Conta</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/chat">Chat</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">Sair</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</header>
+<main class="minhaconta">
+<h1 id="title2">Minhas Conta</h1>
+<section id="minhaconta">
+<form>
+<label for="nome">Qual o seu nome?</label>
+<input type="text" id="nome" required>
+<label for="email">Nos diga um email pelo qual deseja ser notificado?</label>
+<input type="email" name="" id="" required>
+<label for="curso">Qual o seu curso?</label>
+<input type="text" id="curso">
+<label for="modulo">
+Qual seu módulo ou ano?
+</label>
+<select id="modulo">
+<option value="">1</option>
+<option value="">2</option>
+<option value="">3</option>
+<option value="" selected disabled>*</option>
+</select>
+<label for="curso2">Faz mais de um curso?</label>
+<input type="text" id="curso2">
+<button type="button">Salvar</button>
+<p>Deseja mudar de senha? Clique aqui e te enviaremos um email para o mesmo que você utiliza para realizar seu login.</p>
+<button type="button" id="redefinirsenha">Redefinir Senha</button>
+</form>
+<div id="fotoconta">
+<img src="/images/guest2.png" alt="">
+<div id="buttons">
+<button type="button" id="remover">Remover Foto</button>
+<button type="button" id="Adicionar">Adicionar Foto</button>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>
