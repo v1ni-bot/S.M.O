@@ -10,6 +10,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
 
+    height: 100vh;
     background-color: black;
     background-image: url(../images/tec.jpeg);
     background-position: center center;
@@ -52,9 +53,9 @@ nav ul li{
 }
 
 .logo{
-    
+
     max-width: 80px;
-    
+
 }
 
 @media(max-width: 840px){
@@ -69,7 +70,7 @@ nav ul li{
     #subtitle{
         display: none;
     }
-    
+
     .logo{
         width: 40px;
         margin-top: 10px;
@@ -81,6 +82,10 @@ nav ul li{
 main{
     position: relative;
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 main #container{
     max-width: 600px;
