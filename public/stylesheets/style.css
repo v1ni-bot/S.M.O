@@ -225,6 +225,7 @@ section#formulario > form > button{
     display: block;
     padding: 10px 20px;
     margin: 5px auto;
+    color: whitesmoke;
     background-color: darkcyan;
     border: none;
     border-radius: 2px;
