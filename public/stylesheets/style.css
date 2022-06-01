@@ -121,7 +121,7 @@ main.menu{
  padding: 30px;
 }
 
-section#menu{
+section.links{
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -382,7 +382,6 @@ section#minhaconta #redefinirsenha{
 }
 #fotoconta #buttons{
     display: flex;
-    flex-wrap: wrap;
     margin: 10px;
 }
 
