@@ -210,15 +210,8 @@ section#formulario > form > input{
     width: 50%;
 }
 
-section#formulario > form > input[fyle]{
+section#formulario > form > input[type=fyle]{
     color: black;
-    display: block;
-    padding: 10px 20px;
-    margin: 5px auto;
-    border: none;
-    background-color: cyan;
-    border-radius: 2px;
-    width: 50%;
 }
 
 section#formulario > form > button{
