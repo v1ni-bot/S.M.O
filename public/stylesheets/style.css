@@ -384,6 +384,16 @@ section#minhaconta > form > button{
     border-radius: 2px;
 }
 
+section#minhaconta > form > input:hover, select:hover{
+    border: 2px solid white;
+    transition-duration: .2s;
+}
+
+section#minhaconta > form > button:hover{
+    background-color: cyan;
+    transition-duration: 1s;
+}
+
 section#minhaconta #redefinirsenha{
     margin: 10px auto;
 }
@@ -414,6 +424,11 @@ section#minhaconta #redefinirsenha{
     background-color: darkcyan;
     border: none;
     border-radius: 2px;
+}
+
+#fotoconta #buttons > button:hover{
+    background-color: cyan;
+    transition-duration: 1s;
 }
 
 /* -------------------------- */
