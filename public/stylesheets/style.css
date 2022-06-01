@@ -135,7 +135,7 @@ main.menu a{
     text-align: center;
     padding: 20px;
     margin: 5px;
-    flex: 1 1 400px;
+    flex: 1 1 300px;
     font-size: 2.5vh;
     text-decoration: none;
 }
