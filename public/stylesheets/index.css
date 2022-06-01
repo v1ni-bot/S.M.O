@@ -86,7 +86,6 @@ main{
 main #container{
     max-width: 600px;
     min-width: none;
-    max-height: 70vh;
     background-color: rgba(0, 0, 0, 0.849);
     color: whitesmoke;
     border: 1px solid darkcyan;
