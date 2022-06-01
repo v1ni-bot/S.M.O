@@ -166,6 +166,9 @@ section#menu div p{
 /* ------------------------------------ */
 /* -----------pagina-form-------------- */
 
+main.formulario{
+    padding: 10px;
+}
 
 section#formulario{
     max-width: 800px;
@@ -210,7 +213,7 @@ section#formulario > form > input{
     width: 50%;
 }
 
-section#formulario > form > input[type=fyle]{
+section#formulario > form > input[type=file]{
     color: black;
 }
 
