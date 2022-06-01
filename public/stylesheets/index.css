@@ -82,20 +82,21 @@ nav ul li{
 main{
     position: relative;
     height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 main #container{
     max-width: 600px;
     min-width: none;
+    max-height: 100%;
     background-color: rgba(0, 0, 0, 0.849);
     color: whitesmoke;
     border: 1px solid darkcyan;
     border-radius: 20px;
     padding: 20px;
     margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 #or{
