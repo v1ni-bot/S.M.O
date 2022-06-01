@@ -30,7 +30,7 @@ window.register = async function() {
     createUserWithEmailAndPassword(auth, upEmail, upPass).then((userCredential) => {
         //Criado e Logado
         alert('Usuario criado com sucesso.');
-        window.location.assign('index2.html');
+        window.location.replace("/menu-admin");
         const user = userCredential.user;
     })
     .catch((error) => {
