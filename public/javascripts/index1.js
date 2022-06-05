@@ -1,6 +1,8 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
 
 const auth = getAuth();
+
+setPersistence(auth, browserSessionPersistence);
 
 var btnEntrar = document.getElementById('btnentrar');
 var btnCadastrar = document.getElementById('btncadastrar');
