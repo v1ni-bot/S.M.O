@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script type="text/JavaScript" src="/javascripts/forms.js"></script>
+<script type="module" src="/javascripts/forms.js"></script>
 </head>
 <body>
 <header>
@@ -48,36 +48,37 @@
 <form>
 <label for="predio">Para começar, por favor nos diga, em que prédio você está?</label>
 <select name="" id="predio" required>
-<option value="">Prédio Administrativo</option>
-<option value="">Biblioteca</option>
-<option value="">Anexo</option>
-<option value="">Bloco A</option>
-<option value="">Bloco B</option>
-<option value="">Bloco C</option>
-<option value="">Auditório</option>
+<option value="Prédio Administrativo">Prédio Administrativo</option>
+<option value="Biblioteca">Biblioteca</option>
+<option value="Anexo">Anexo</option>
+<option value="Bloco A">Bloco A</option>
+<option value="Bloco B">Bloco B</option>
+<option value="Bloco C">Bloco C</option>
+<option value="Auditório">Auditório</option>
 <option value="" disabled selected>Selecione</option>
 </select>
 <label for="local">Qual local desse prédio?</label>
 <select name="" id="local" required>
 <option value="" selected disabled>Selecione</option>
+<option value="Local teste">Local</option>
 </select>
 <label for="problema">Em que você precisa de ajuda?</label>
 <select name="" id="problema" required>
-<option value="">Monitor</option>
-<option value="">Teclado</option>
-<option value="">Mouse</option>
-<option value="">Microfone</option>
-<option value="">Aúdio</option>
-<option value="">Projetor</option>
-<option value="">Televisão</option>
-<option value="">Computador</option>
+<option value="Monitor">Monitor</option>
+<option value="Teclado">Teclado</option>
+<option value="Mouse">Mouse</option>
+<option value="Microfone">Microfone</option>
+<option value="Aúdio">Aúdio</option>
+<option value="Projetor">Projetor</option>
+<option value="Televisão">Televisão</option>
+<option value="Computador">Computador</option>
 <option value="" disabled selected>Selecione</option>
 </select>
 <label for="prioridade">Se pudesse classificar o nível da emergência, qual seria?</label>
 <select name="" id="prioridade" required>
-<option value="">Alta</option>
-<option value="">Média</option>
-<option value="">Baixa</option>
+<option value="Alta">Alta</option>
+<option value="Média">Média</option>
+<option value="Baixa">Baixa</option>
 <option value="" selected disabled>Selecione</option>
 </select>
 <label for="descricao">Caso queira, sinta-se a vontade para adicionar uma breve descrição do seu problema.</label>

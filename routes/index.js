@@ -15,7 +15,6 @@ router.get('/menu-usuario', function(req, res, next) {
 router.get('/menu-admin', function(req, res, next) {
   res.render('menu-admin');
 });
-
 router.get('/formulario-dti', function(req, res, next) {
   res.render('formulario-dti');
 });

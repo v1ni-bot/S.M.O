@@ -1,11 +1,11 @@
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"
-import {getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js"
+import {getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import {app} from "./app.js";
 
 const db = getFirestore(app);
 
-var buttonDTI = Document.getElementById('buttonDTI');
+var buttonDTI = document.getElementById('buttonDTI');
 
-window.formDti = async function() {
+window.formDTI = async function() {
    var predio = document.getElementById('predio').value;
    var local = document.getElementById('local').value;
    var problema = document.getElementById('problema').value;
@@ -14,7 +14,8 @@ window.formDti = async function() {
    var img = document.getElementById('img').value;
 
     try {
-    const docRef = await addDoc(collection(db, "users"), {
+    const docRef = await addDoc(collection(db, "chamados"), {
+        user: sessionStorage.getItem("authUser.uid"),
         predio: predio,
         local: local,
         problema: problema,

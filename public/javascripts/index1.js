@@ -2,6 +2,8 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, set
 
 const auth = getAuth();
 
+export {auth};
+
 setPersistence(auth, browserSessionPersistence);
 
 var btnEntrar = document.getElementById('btnentrar');
