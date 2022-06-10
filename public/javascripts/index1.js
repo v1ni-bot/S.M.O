@@ -44,19 +44,23 @@ window.register = async function() {
     });
 }
 
-btnEntrar.addEventListener('click', function() {
-            window.login();
-})
+if(btnEntrar){
+    btnEntrar.addEventListener('click', function() {
+        window.login();
+    })
+}
 
-btnCadastrar.addEventListener('click', function() {
-    var upPass = document.getElementById('uppass').value;
-    var reUpPass = document.getElementById('reuppass').value;
+if(btnCadastrar){
+    btnCadastrar.addEventListener('click', function() {
+        var upPass = document.getElementById('uppass').value;
+        var reUpPass = document.getElementById('reuppass').value;
 
 
-    if ( upPass == reUpPass){
-       window.register(); 
-    }
-    else{
-        alert('Verifique sua senha.');
-    }
-})
+        if ( upPass == reUpPass){
+        window.register(); 
+        }
+        else{
+            alert('Verifique sua senha.');
+        }
+    })
+}
