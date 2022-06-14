@@ -1,7 +1,7 @@
 import {getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"
 import {app} from "./app.js";
-import {auth} from "./index1.js"
+import {auth} from "./index.js"
 
 const db = getFirestore(app);
 

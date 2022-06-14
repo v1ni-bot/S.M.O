@@ -13,7 +13,7 @@ router.get('/menu-usuario', function(req, res, next) {
   res.render('menu-usuario');
 });
 router.get('/menu-admin', function(req, res, next) {
-  res.render('menu-admin');
+        res.render('menu-admin');
 });
 router.get('/formulario-dti', function(req, res, next) {
   res.render('formulario-dti');
