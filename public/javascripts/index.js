@@ -1,4 +1,4 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, updateProfile} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
 
 const auth = getAuth();
 
@@ -33,9 +33,19 @@ window.register = async function() {
 
     createUserWithEmailAndPassword(auth, upEmail, upPass).then((userCredential) => {
         //Criado e Logado
+        //Salvando imagem
+        updateProfile(auth.currentUser, {
+        photoURL: "https://firebasestorage.googleapis.com/v0/b/fir-m-o-33a7b.appspot.com/o/guest1.png?alt=media&token=daf56882-3f80-4453-9303-10bfd7c82692"
+        }).then(() => {
+        // Profile updated!
+        console.log("Foto salva com sucesso!")
+        }).catch((error) => {
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
         alert('Usuario criado com sucesso.');
         window.location.replace("/menu-admin");
-        const user = userCredential.user;
+
     })
     .catch((error) => {
         const errorCode = error.code;
