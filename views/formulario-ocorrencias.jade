@@ -56,11 +56,11 @@
 <option value="Bloco C">Bloco C</option>
 <option value="Auditório">Auditório</option>
 <option value="Pátio">Pátio</option>
-<option value="" disabled selected>Selecione</option>
+<option value="" disabled selected></option>
 </select>
 <label for="local">Qual local desse prédio?</label>
 <select name="" id="local" required>
-<option value="" selected disabled>Selecione</option>
+<option value="" selected disabled></option>
 <option value="Local teste">Local</option>
 </select>
 <label for="problema">Com que área esse problema mais se parece? Encaminharemos para eles.</label>
@@ -68,17 +68,19 @@
 <option value="Gestão Predial">Gestão Predial</option>
 <option value="Departamento de Informática">Departamento de Informática</option>
 <option value="Ambos">Ambos</option>
-<option value="" disabled selected>Selecione</option>
+<option value="" disabled selected></option>
 </select>
 <label for="prioridade">Se pudesse classificar um nível para o problema, qual seria?</label>
 <select name="" id="prioridade" required>
 <option value="Grave">Grave</option>
 <option value="Média">Média</option>
 <option value="Baixa">Baixa</option>
-<option value="" selected disabled>Selecione</option>
+<option value="" selected disabled></option>
 </select>
+<label for="descricao">Por favor, informe um breve título para essa ocorrência.</label>
+<input type="text" name="" id="titulo" placeholder="..." maxlength="50">
 <label for="descricao">Qual é o problema que encontrou?</label>
-<input type="text" name="" id="descricao" placeholder="Escreva aqui">
+<input type="text" name="" id="descricao" placeholder="...">
 <label for="img">Caso queira, sinta-se a vontade para adicionar uma imagem.</label>
 <input type="file" name="" id="img" accept="image/*">
 <button type="button" id="buttonOcorrencias">Solicitar Manutenção</button>

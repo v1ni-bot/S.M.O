@@ -3,14 +3,14 @@ import {app} from "./app.js";
 
 const db = getFirestore(app);
 
-const section = document.querySelector('[data-js="lista-chamados"]');
+const section = document.querySelector('[data-js="lista-ocorrencias"]');
 
-const q = query(collection(db, "chamados"), where("tipo", "==", "DTI"));
+const q = query(collection(db, "ocorrencias"));
 const querySnapshot = await getDocs(q);
 var chamado = '';
   querySnapshot.forEach((doc) => {
     switch(doc.data().prioridade){
-      case "Alta":
+      case "Grave":
       var cor = "red";
       break;
       case "Média":
@@ -30,13 +30,14 @@ var chamado = '';
     }
 
     chamado += `
-      <a href="/Chamado/${doc.id}">
+      <a href="/Ocorrencia/${doc.id}">
         <div class="chamado">
-          <img id="fotoperfil" src="${photo}" alt="">
-          <p>${doc.data().predio}</p>
-          <p>${doc.data().local}</p>
-          <p>${doc.data().problema}</p>
-        <div id="alerta" style="background-color: ${cor};"></div>
+          <img id="fotoperfil" src="${photo}" alt="Foto de Perfil">
+          <p>Área: ${doc.data().tipo}</p>
+          <p>Prédio: ${doc.data().predio}</p>
+          <p>Local: ${doc.data().local}</p>
+          <p>Título: ${doc.data().titulo}</p>
+          <div id="alerta" style="background-color: ${cor};"></div>
         </div>
       </a>
     `;
