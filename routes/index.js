@@ -4,28 +4,6 @@ var firebaseApp = require('firebase/app');
 const { browserSessionPersistence } = require('firebase/auth');
 var router = express.Router();
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAhB7eeU4eF06peJB-hIDSonpFcvE_5mF4",
-  authDomain: "fir-m-o-33a7b.firebaseapp.com",
-  projectId: "fir-m-o-33a7b",
-  storageBucket: "fir-m-o-33a7b.appspot.com",
-  messagingSenderId: "283466990328",
-  appId: "1:283466990328:web:0687ba13bb02dfa7d4710d"
-};
-
-const app = firebaseApp.initializeApp(firebaseConfig);
-const auth = firebaseAuth.getAuth();
-
-firebaseAuth.setPersistence(auth, browserSessionPersistence);
-globalThis.usuario;
-firebaseAuth.onAuthStateChanged(auth, (user) => {
-  if(user){
-    //logado
-    usuario = user;
-  }else{
-    usuario = null;
-  }
-})
 /* GET home page.
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -65,6 +43,9 @@ router.get('/meus-chamados', function(req, res, next) {
 });
 router.get('/minha-conta', function(req, res, next) {
   res.render('minha-conta');
+});
+router.get('/chamado/:docId', function(req, res, next) {
+  res.render('chat');
 });
 router.get('/chat', function(req, res, next) {
   res.render('chat');

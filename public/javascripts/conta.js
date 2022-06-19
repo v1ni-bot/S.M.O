@@ -52,3 +52,21 @@ if(buttonSalvar){
         window.SalvarDados();
     })
 }
+
+//deletar documento
+import { doc, deleteDoc } from "firebase/firestore";
+
+await deleteDoc(doc(db, "cities", "DC"));
+
+
+
+
+//deletar campo
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+
+const cityRef = doc(db, 'cities', 'BJ');
+
+// Remove the 'capital' field from the document
+await updateDoc(cityRef, {
+    capital: deleteField()
+});

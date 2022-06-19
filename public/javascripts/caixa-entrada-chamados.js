@@ -6,18 +6,18 @@ import {auth} from "./index.js"
 onAuthStateChanged(auth, (user) => {
     if(user) {
         //Usuario logado
-         globalThis.uid = user.uid;
+        globalThis.uid = user.uid;
         console.log("logado");
     } else {
        console.log("deslogado");
     }
 });
-
+console.log(uid);
 const db = getFirestore(app);
 
 const section = document.querySelector('[data-js="lista-chamados"]');
 
-const q = query(collection(db, "chamados"), where("uid", "==", uid));
+const q = query(collection(db, "chamados"), where("uid", "==", auth.currentUser));
 const querySnapshot = await getDocs(q);
 var chamado = '';
   querySnapshot.forEach((doc) => {
@@ -65,3 +65,9 @@ var chamado = '';
     `;
     section.innerHTML = chamado;
 });
+/*
+//deletar
+import { doc, deleteDoc } from "firebase/firestore";
+
+await deleteDoc(doc(db, "cities", "DC"));
+*/
