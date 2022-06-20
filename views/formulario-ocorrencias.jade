@@ -47,45 +47,56 @@
 <h1>Por favor, informe abaixo o problema que encontrou</h1>
 <form>
 <label for="predio">Para começar, por favor nos diga, em que prédio você está?</label>
-<select name="" id="predio" required>
+<select name="" id="predio" onchange="selectDinamico(this.value)" required>
 <option value="Prédio Administrativo">Prédio Administrativo</option>
 <option value="Biblioteca">Biblioteca</option>
 <option value="Anexo">Anexo</option>
-<option value=">Bloco A">Bloco A</option>
+<option value="Bloco A">Bloco A</option>
 <option value="Bloco B">Bloco B</option>
 <option value="Bloco C">Bloco C</option>
 <option value="Auditório">Auditório</option>
 <option value="Pátio">Pátio</option>
-<option value="" disabled selected></option>
+<option value="" disabled selected>*</option>
 </select>
 <label for="local">Qual local desse prédio?</label>
 <select name="" id="local" required>
-<option value="" selected disabled></option>
-<option value="Local teste">Local</option>
+<option value="" selected disabled>*</option>
 </select>
 <label for="problema">Com que área esse problema mais se parece? Encaminharemos para eles.</label>
 <select name="" id="tipo" required>
 <option value="Gestão Predial">Gestão Predial</option>
 <option value="Departamento de Informática">Departamento de Informática</option>
 <option value="Ambos">Ambos</option>
-<option value="" disabled selected></option>
+<option value="" disabled selected>*</option>
 </select>
 <label for="prioridade">Se pudesse classificar um nível para o problema, qual seria?</label>
 <select name="" id="prioridade" required>
 <option value="Grave">Grave</option>
 <option value="Média">Média</option>
 <option value="Baixa">Baixa</option>
-<option value="" selected disabled></option>
+<option value="" selected disabled>*</option>
 </select>
 <label for="descricao">Por favor, informe um breve título para essa ocorrência.</label>
-<input type="text" name="" id="titulo" placeholder="..." maxlength="50">
+<input type="text" name="" id="titulo" placeholder="..." maxlength="25">
 <label for="descricao">Qual é o problema que encontrou?</label>
-<input type="text" name="" id="descricao" placeholder="...">
+<textarea name="" id="descricao" placeholder="..." maxlength="150"></textarea>
 <label for="img">Caso queira, sinta-se a vontade para adicionar uma imagem.</label>
 <input type="file" name="" id="img" accept="image/*">
 <button type="button" id="buttonOcorrencias">Solicitar Manutenção</button>
+</div>
 </form>
 </section>
 </main>
+<footer>
+<p>Etec da Zona Leste</p>
+</footer>
+<div class="popup" id="popup">
+<div class="popup-content">
+<div class="popup-title" id="popup-title">
+<span class="close" id="close-button">&times;</span>
+</div>
+<div class="popup-text" id="popup-text"></div>
+</div>
+</div>
 </body>
 </html>

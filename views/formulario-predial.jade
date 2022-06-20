@@ -47,7 +47,7 @@
 <h1>Por favor, preencha os dados do seu problema</h1>
 <form>
 <label for="predio">Para começar, por favor nos diga, em que prédio você está?</label>
-<select name="" id="predio" required>
+<select name="" id="predio" onchange="selectDinamico(this.value)" required>
 <option value="Prédio Administrativo">Prédio Administrativo</option>
 <option value="Biblioteca">Biblioteca</option>
 <option value="Anexo">Anexo</option>
@@ -56,12 +56,11 @@
 <option value="Bloco C">Bloco C</option>
 <option value="Auditório">Auditório</option>
 <option value="Pátio">Pátio</option>
-<option value="" disabled selected>Selecione</option>
+<option value="" disabled selected>*</option>
 </select>
 <label for="local">Qual local desse prédio?</label>
 <select name="" id="local" required>
-<option value="" selected disabled>Selecione</option>
-<option value="Local teste">Local</option>
+<option value="" selected disabled>*</option>
 </select>
 <label for="problema">Que tipo de problema você precisa de ajuda?</label>
 <select name="" id="problema" required>
@@ -73,22 +72,33 @@
 <option value="Limpeza">Limpeza</option>
 <option value="Pintura ou Acabamento">Pintura ou Acabamento</option>
 <option value="Segurança">Segurança</option>
-<option value="" disabled selected>Selecione</option>
+<option value="" disabled selected>*</option>
 </select>
 <label for="prioridade">Se pudesse classificar o nível da emergência, qual seria?</label>
 <select name="" id="prioridade" required>
 <option value="Alta">Alta</option>
 <option value="Média">Média</option>
 <option value="Baixa">Baixa</option>
-<option value="" selected disabled>Selecione</option>
+<option value="" selected disabled>*</option>
 </select>
 <label for="descricao">Caso queira, sinta-se a vontade para adicionar uma breve descrição do seu problema.</label>
-<input type="text" name="" id="descricao" placeholder="Escreva aqui">
+<textarea name="" id="descricao" placeholder="Escreva aqui" maxlength="150"></textarea>
 <label for="img">Caso queira, sinta-se a vontade para adicionar uma imagem.</label>
 <input type="file" name="" id="img" accept="image/*">
 <button type="button" id="buttonPredial">Solicitar Manutenção</button>
 </form>
 </section>
 </main>
+<footer>
+<p>Etec da Zona Leste</p>
+</footer>
+<div class="popup" id="popup">
+<div class="popup-content">
+<div class="popup-title" id="popup-title">
+<span class="close" id="close-button">&times;</span>
+</div>
+<div class="popup-text" id="popup-text"></div>
+</div>
+</div>
 </body>
 </html>

@@ -3,21 +3,13 @@ import {app} from "./app.js";
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"
 import {auth} from "./index.js"
 
-onAuthStateChanged(auth, (user) => {
-    if(user) {
-        //Usuario logado
-        globalThis.uid = user.uid;
-        console.log("logado");
-    } else {
-       console.log("deslogado");
-    }
-});
-console.log(uid);
 const db = getFirestore(app);
 
 const section = document.querySelector('[data-js="lista-chamados"]');
 
-const q = query(collection(db, "chamados"), where("uid", "==", auth.currentUser));
+var user = auth.currentUser;
+
+const q = query(collection(db, "chamados"), where("uid", "==", user.uid));
 const querySnapshot = await getDocs(q);
 var chamado = '';
   querySnapshot.forEach((doc) => {

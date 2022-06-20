@@ -213,6 +213,16 @@ section#formulario > form > input{
     width: 50%;
 }
 
+section#formulario > form > textarea{
+    display: block;
+    padding: 10px 20px;
+    margin: 5px auto;
+    border: none;
+    background-color: cyan;
+    border-radius: 2px;
+    width: 50%;
+}
+
 section#formulario > form > input[type=file]{
     color: black;
 }
@@ -233,6 +243,11 @@ section#formulario input:hover, select:hover{
     transition-duration: .2s;
 }
 
+
+section#formulario button:hover{
+    background-color: cyan;
+    transition-duration: 1s;
+}
 
 section#formulario button:hover{
     background-color: cyan;
@@ -295,6 +310,7 @@ section#caixa .chamado:hover{
     text-align: left;
 }
 .chamado p{
+    font-size: clamp(0.25em, 0.5em + 1vw, 1em);
     margin: 0px 50px;
 }
 #fotoperfil{
@@ -501,4 +517,83 @@ section#minhaconta #redefinirsenha{
     text-align: right;
     margin-left: auto;
     background-color: whitesmoke;
+}
+
+/* -------------------------- */
+/* ----------Footer---------- */
+
+footer{
+    background-color: darkcyan;
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+}
+
+footer > p {
+    margin: 0%;
+}
+
+/* -------------------------- */
+/* ------Modal Pop Up-------- */
+
+.popup{
+    position: fixed;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.popup-content{
+    background-color: white;
+    width: 60vw;
+    border-radius: 0.5rem;
+}
+
+.close{
+    float: right;
+    top: 0;
+    width: 24px;
+    cursor: pointer;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 0.5rem;
+}
+
+.close:hover{
+    background-color: darkgray;
+}
+
+.show-popup{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}
+
+.popup-title{
+    background-color: darkcyan;
+    padding: 16px 24px;
+    border-radius: 0.5rem 0.5rem 0 0;
+    margin-bottom: 20px;
+}
+
+.popup-title > h1{
+    padding: 0%;
+    font-size: clamp(0.25em, 0.5em + 1vw, 1em);
+}
+
+.popup-text{
+    padding: 16px 24px;
+    font-size: clamp(0.25em, 0.5em + 1vw, 1em);
+    text-align: left;
 }

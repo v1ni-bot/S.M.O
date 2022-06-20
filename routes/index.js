@@ -1,7 +1,4 @@
 var express = require('express');
-var firebaseAuth = require('firebase/auth');
-var firebaseApp = require('firebase/app');
-const { browserSessionPersistence } = require('firebase/auth');
 var router = express.Router();
 
 /* GET home page.
@@ -17,8 +14,6 @@ router.get('/menu-usuario', function(req, res, next) {
 });
 router.get('/menu-admin', function(req, res, next) {
   res.render('menu-admin')
- // if(usuario !== null) next(res.render('menu-admin'))
- // else next(res.render('index'))
 });
 router.get('/formulario-dti', function(req, res, next) {
   res.render('formulario-dti');
@@ -45,7 +40,7 @@ router.get('/minha-conta', function(req, res, next) {
   res.render('minha-conta');
 });
 router.get('/chamado/:docId', function(req, res, next) {
-  res.render('chat');
+  res.render('chamado');
 });
 router.get('/chat', function(req, res, next) {
   res.render('chat');
