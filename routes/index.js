@@ -36,11 +36,11 @@ router.get('/caixa-entrada-ocorrencias', function(req, res, next) {
 router.get('/meus-chamados', function(req, res, next) {
   res.render('meus-chamados');
 });
+router.get('/minhas-ocorrencias', function(req, res, next) {
+  res.render('minhas-ocorrencias');
+});
 router.get('/minha-conta', function(req, res, next) {
   res.render('minha-conta');
-});
-router.get('/chamado/:docId', function(req, res, next) {
-  res.render('chamado');
 });
 router.get('/chat', function(req, res, next) {
   res.render('chat');

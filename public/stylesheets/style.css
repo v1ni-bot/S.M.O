@@ -256,7 +256,7 @@ section#formulario button:hover{
 
 /* ---------------------------------- */
 /* -------pagina-caixa-entrada------- */
-/* ---------e-minhas-chamadas-------- */
+/* ---------e-meus-chamados-------- */
 
 main.caixaentrada{
     padding: 10px;
@@ -557,11 +557,14 @@ footer > p {
     background-color: white;
     width: 60vw;
     border-radius: 0.5rem;
+    position: relative;
 }
 
 .close{
+    position: absolute;
     float: right;
-    top: 0;
+    right: 10px;
+    top: 10px;
     width: 24px;
     cursor: pointer;
     background-color: lightgray;
@@ -596,4 +599,8 @@ footer > p {
     padding: 16px 24px;
     font-size: clamp(0.25em, 0.5em + 1vw, 1em);
     text-align: left;
+}
+
+.botoes{
+    margin: 5px;
 }

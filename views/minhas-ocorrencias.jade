@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu</title>
+<title>Minhas Ocorrências</title>
 <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/stylesheets/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script type="module" src="app.js"></script>
-<script type="module" src="index2.js"></script>
+<script type="module" src="/javascripts/caixa-entrada-minhas-ocorrencias.js"></script>
 </head>
 <body>
 <header>
@@ -42,34 +41,49 @@
 </div>
 </nav>
 </header>
-<main class="menu">
-<section id="menu">
-<a href="/formulario-dti">
-<div>
-<h1>Solicite Manutenção T.I</h1>
-<img src="/images/dti5.png" alt="DTI">
-<p>Solicite apoio técnico em problemas de informática, sejam computadores, periféricos, monitores, projetores, conexão a internet e outros.</p>
-</div>
+<main class="caixaentrada">
+<h1 id="title2">Minhas Ocorrências</h1>
+<nav class="navbar navbar-expand-lg bg-light">
+<div class="container-fluid">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="#">Ordenar &uparrow;</a>
+</li>
+<li class="nav-item">
+<a class="nav-link active" href="#">Ordenar &downarrow;</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+Prioridade
 </a>
-<a href="/formulario-predial">
-<div>
-<h1>Solicite Manutenção Predial</h1>
-<img src="/images/p3.png" alt="Predial">
-<p>Solicite a manutenção para o ambiente predial, que envolve problemas hidráulicos (encamento e vazamentos), elétricos ( fiações e energia), estrutural (rachaduras, pinturas etc) e limpeza.</p>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<li><a class="dropdown-item" href="#">Alta</a></li>
+<li><a class="dropdown-item" href="#">Média</a></li>
+<li><a class="dropdown-item" href="#">Baixa</a></li>
+</ul>
+</li>
+</ul>
+<form class="d-flex" role="search">
+<input class="form-control me-2" type="search" placeholder="..." aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Procurar</button>
+</form>
 </div>
-</a>
-<a href="/formulario-ocorrencias">
-<div>
-<h1>Notifique uma Ocorrência</h1>
-<img src="/images/ocorrencias.png" alt="Ocorrencia">
-<p>Reporte casos de mal uso, vandalismo, objetos danificados e danos em geral, para a direção escolar.</p>
 </div>
-</a>
+</nav>
+<section id="caixa" data-js="lista-chamados">
+
 </section>
 </main>
 <footer>
 <p>Etec da Zona Leste</p>
 </footer>
+<div data-js="lista-popups">
+
+</div>
 <div class="popup" id="popup">
 <div class="popup-content">
 <div class="popup-title" id="popup-title">

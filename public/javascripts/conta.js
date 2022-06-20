@@ -1,15 +1,9 @@
-import { getAuth, updateProfile, onAuthStateChanged } from "firebase/auth";
-const auth = getAuth();
+import { getAuth, updateProfile, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import {getFirestore, doc, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import {app} from "./app.js";
+import {auth} from "./index.js"
 
-onAuthStateChanged(auth, (user) => {
-    if(user) {
-        //Usuario logado
-         globalThis.uid = user.uid;
-        console.log("logado");
-    } else {
-       console.log("deslogado");
-    }
-});
+const db = getFirestore(app);
 
 var buttonSalvar = document.getElementById('buttonSalvar');
 var buttonAdicionar = document.getElementById('buttonAdicionar');
@@ -22,25 +16,34 @@ window.salvarDados = async function(){
     var modulo = document.getElementById('modulo').value;
     var curso2 = document.getElementById('curso2').value; 
 
-    //nome
-    updateProfile(auth.currentUser, {
-    displayName: nome
-    }).then(() => {
-    // Profile updated!
-    console.log("Nome salvo!");
-    }).catch((error) => {
-    // An error occurred
-    const errorMessage = error.message;
-    alert(errorMessage);
-    });
 
-    //outras informações
-    await setDoc(doc(db, "usuarios", uid), {
-        email: email,
-        curso: curso,
-        modulo: modulo,
-        curso2: curso2
-      });
+    onAuthStateChanged(auth, (user) => {
+        if(user) {
+            //nome
+            updateProfile(auth.currentUser, {
+            displayName: nome
+            }).then(() => {
+            // Profile updated!
+            console.log("Nome salvo!");
+            }).catch((error) => {
+            // An error occurred
+            const errorMessage = error.message;
+            alert(errorMessage);
+            });
+        
+            //outras informações
+            const userRef = doc(db, "usuarios", user.uid);
+            updateDoc (userRef, {
+                updated_at: serverTimestamp(),
+                nome: nome,
+                email: email,
+                curso: curso,
+                modulo: modulo,
+                curso2: curso2
+            });
+            
+        }
+    });
 }
 
 window.adicionarFoto = async function() {
@@ -49,24 +52,12 @@ window.adicionarFoto = async function() {
 
 if(buttonSalvar){
     buttonSalvar.addEventListener('click', function() {
-        window.SalvarDados();
+        console.log("apertou");
+        window.salvarDados();
     })
 }
 
-//deletar documento
-import { doc, deleteDoc } from "firebase/firestore";
-
-await deleteDoc(doc(db, "cities", "DC"));
 
 
 
-
-//deletar campo
-import { doc, updateDoc, deleteField } from "firebase/firestore";
-
-const cityRef = doc(db, 'cities', 'BJ');
-
-// Remove the 'capital' field from the document
-await updateDoc(cityRef, {
-    capital: deleteField()
-});
+//await deleteDoc(doc(db, "cities", "DC"));

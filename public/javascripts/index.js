@@ -1,7 +1,10 @@
 //---------------------------------------Declarações e importações para o código-----------------------------------------------------------
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, updateProfile} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import {getFirestore, setDoc, doc, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import {app} from "./app.js";
 
 const auth = getAuth();
+const db = getFirestore(app);
 
 export {auth};
 
@@ -118,6 +121,17 @@ window.register = async function() {
         //Retorno de usuario criado e logado
         const user = userCredential.user;
 
+        //Criação das informações do usuário no banco de dados
+        setDoc(doc(db, "usuarios", user.uid), {
+            created_at: serverTimestamp(),
+            updated_at: "",
+            nome: "",
+            email: user.email,
+            curso: "",
+            modulo: "",
+            curso2: ""
+          });
+
         //Captura dos elementos do Modal Pop-up na página
         var element = document.getElementById('popup');
         var title = document.getElementById('popup-title');
@@ -183,7 +197,7 @@ window.register = async function() {
             break;
             default:
                 title.innerHTML = `<h1>Ocorreu um erro:<span class="close" id="close-button">&times;</span></h1>`;
-                text.innerHTML = `<p>Por favor, verifique seus dados e sua conexão e tente novamente. Se o erro persistir, tente novamente mais tarde ou notifique a coordenação escolar..</p>`;
+                text.innerHTML = `<p>Por favor, verifique seus dados e sua conexão e tente novamente. Se o erro persistir, tente novamente mais tarde ou notifique a coordenação escolar.. ${errorCode}</p>`;
             
         }
 
