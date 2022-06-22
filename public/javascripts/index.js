@@ -67,6 +67,7 @@ window.login = async function() {
                 })
             })
         })
+    })
     //Função de tratamento de erro.
     .catch((error) => {
 
@@ -120,7 +121,6 @@ window.login = async function() {
             });
             //const errorMessage = error.message;
     });
-})
 }
 
 //--------------------------------------------Função para efetuar o cadastro de usuario-----------------------------------------------------
