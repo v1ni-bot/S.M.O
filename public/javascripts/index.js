@@ -27,6 +27,8 @@ window.login = async function() {
         //Retorno de Usuário Autenticado
         const user = userCredential.user;
 
+        hideModal();
+
         //Captura dos elementos do Modal Pop-up na página
         var element = document.getElementById('popup');
         var title = document.getElementById('popup-title');
@@ -73,6 +75,8 @@ window.login = async function() {
 
         //Variavel com retorno do erro
         const errorCode = error.code;
+
+        hideModal();
 
         //Captura dos elementos do Modal Pop-up na página
         var element = document.getElementById('popup');
@@ -149,6 +153,8 @@ window.register = async function() {
             uid: user.uid
           });
 
+          hideModal();
+
         //Captura dos elementos do Modal Pop-up na página
         var element = document.getElementById('popup');
         var title = document.getElementById('popup-title');
@@ -185,6 +191,8 @@ window.register = async function() {
 
         //Variavel com retorno do erro
         const errorCode = error.code;
+
+        hideModal();
 
         //Captura dos elementos do Modal Pop-up na página
         var element = document.getElementById('popup');
@@ -246,6 +254,26 @@ window.register = async function() {
 if(btnEntrar){
     btnEntrar.addEventListener('click', function() {
         window.login();
+        var element = document.getElementById('popup');
+        var title = document.getElementById('popup-title');
+        var text = document.getElementById('popup-text');
+
+        title.innerHTML = `<h1>Enviando..<span class="close" id="close-button">&times;</span></h1>`;
+        text.innerHTML = `<div class="spinner-border text-info" role="status"></div>`;
+
+        //Renderizando o pop-up na página
+        element.classList.add('show-popup');
+
+        //Captura do botão de fechamento do pop-up
+        var close = document.getElementById('close-button');
+        
+        //Evento para fechar o pop-up e redirecionar para aplicação
+        close.addEventListener('click', function() {
+
+            //Função para fechar pop-up
+            hideModal();
+
+        })
     });
 };
 
@@ -265,7 +293,27 @@ if(btnCadastrar){
             if(dominio == "etec.sp.gov.br"){
                 console.log(dominio);    
                 //Retorno verificado para função    
-                window.register(); 
+                window.register();
+                var element = document.getElementById('popup');
+                var title = document.getElementById('popup-title');
+                var text = document.getElementById('popup-text');
+
+                title.innerHTML = `<h1>Enviando..<span class="close" id="close-button">&times;</span></h1>`;
+                text.innerHTML = `<div class="spinner-border text-info" role="status"></div>`;
+
+                //Renderizando o pop-up na página
+                element.classList.add('show-popup');
+
+                //Captura do botão de fechamento do pop-up
+                var close = document.getElementById('close-button');
+                
+                //Evento para fechar o pop-up e redirecionar para aplicação
+                close.addEventListener('click', function() {
+
+                    //Função para fechar pop-up
+                    hideModal();
+
+                })
             }else{
                 //Retorno inválido do email
                 console.log(dominio);
