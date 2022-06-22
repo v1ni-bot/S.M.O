@@ -1,6 +1,6 @@
 //---------------------------------------Declarações e importações para o código-----------------------------------------------------------
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, updateProfile} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
-import {getFirestore, setDoc, doc, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, updateProfile, sendPasswordResetEmail} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import {getFirestore, setDoc, doc, serverTimestamp, query, collection, where, onSnapshot} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 import {app} from "./app.js";
 
 const auth = getAuth();
@@ -34,7 +34,12 @@ window.login = async function() {
 
         //Geração do Modal Pop-up na Página
         title.innerHTML = `<h1>Acesso permitido.<span class="close" id="close-button">&times;</span></h1>`;
-        text.innerHTML = `<p>Olá ${user.email}, seja bem vindo ao S.M.O! </p>`;
+        if(user.displayName !== null){
+
+            text.innerHTML = `<p>Olá ${user.displayName},  seja bem vindo ao S.M.O!</p>`;
+        }else{
+            text.innerHTML = `<p>Olá ${user.email},  seja bem vindo ao S.M.O!</p>`;
+        }
 
         //Renderizando o pop-up na página
         element.classList.add('show-popup');
@@ -49,10 +54,19 @@ window.login = async function() {
             hideModal();
 
             //Redirecionamento para aplicação
-            window.location.replace("/menu-admin");
-        });
-        
-    })
+            const q = query(collection(db, "usuarios"), where("uid", "==", user.uid));
+    
+            //Verificação para o redirecionamento
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if(doc.data().admin == "true"){
+                        window.location.replace("/menu-admin");
+                    }else{
+                        window.location.replace("/menu-usuario");    
+                    }
+                })
+            })
+        })
     //Função de tratamento de erro.
     .catch((error) => {
 
@@ -92,20 +106,21 @@ window.login = async function() {
             
         }
 
-        //Renderizando o pop-up na página
-        element.classList.add('show-popup');
+            //Renderizando o pop-up na página
+            element.classList.add('show-popup');
 
-        //Captura do botão de fechamento do pop-up
-        var close = document.getElementById('close-button');
-        
-        //Evento para fechar o pop-up e redirecionar para aplicação
-        close.addEventListener('click', function() {
+            //Captura do botão de fechamento do pop-up
+            var close = document.getElementById('close-button');
+            
+            //Evento para fechar o pop-up e redirecionar para aplicação
+            close.addEventListener('click', function() {
 
-            //Função para fechar pop-up
-            hideModal();
-        });
-        //const errorMessage = error.message;
+                //Função para fechar pop-up
+                hideModal();
+            });
+            //const errorMessage = error.message;
     });
+})
 }
 
 //--------------------------------------------Função para efetuar o cadastro de usuario-----------------------------------------------------
@@ -129,7 +144,9 @@ window.register = async function() {
             email: user.email,
             curso: "",
             modulo: "",
-            curso2: ""
+            curso2: "",
+            admin : "false",
+            uid: user.uid
           });
 
         //Captura dos elementos do Modal Pop-up na página
@@ -139,7 +156,12 @@ window.register = async function() {
 
         //Geração do Modal Pop-up na Página
         title.innerHTML = `<h1>Cadastro realizado.<span class="close" id="close-button">&times;</span></h1>`;
-        text.innerHTML = `<p>Olá ${user.email},  seja bem vindo ao S.M.O!</p>`;
+        if(user.displayName !== null){
+
+            text.innerHTML = `<p>Olá ${user.displayName},  seja bem vindo ao S.M.O!</p>`;
+        }else{
+            text.innerHTML = `<p>Olá ${user.email},  seja bem vindo ao S.M.O!</p>`;
+        }
 
         //Renderizando o pop-up na página
         element.classList.add('show-popup');
@@ -309,6 +331,100 @@ function hideModal(){
     var element = document.getElementById('popup');
     element.classList.remove('show-popup');
 };
+
+
+//--------------------------------------------Função Redefinir Senha-----------------------------------------------------
+window.redefinirSenha = async function() {
+    
+    //Captura dos elementos do Modal Pop-up na página
+    var element = document.getElementById('popup');
+    var title = document.getElementById('popup-title');
+    var text = document.getElementById('popup-text');
+
+    // Geração do Modal Pop-up na Página
+    
+    title.innerHTML = `<h1>Recuperar Acesso<span class="close" id="close-button">&times;</span></h1>`;
+    text.innerHTML = `<p>Por favor, informe o email de seu login.</p>
+    <p>Será enviado um email para a redefinição de sua senha para o email informado.</p>
+    <input type="email" id="emailSenha">
+    <button id="enviarEmail" onclick="window.enviarEmail()">Enviar</button>`;
+        
+
+    //Renderizando o pop-up na página
+    element.classList.add('show-popup');
+
+    //Captura do botão de fechamento do pop-up
+    var close = document.getElementById('close-button');
+    
+    //Evento para fechar o pop-up e redirecionar para aplicação
+    close.addEventListener('click', function() {
+
+        //Função para fechar pop-up
+        hideModal();
+
+    })
+    window.enviarEmail = async function(){
+        hideModal();
+        //Captura dos elementos do Modal Pop-up na página
+        var element = document.getElementById('popup');
+        var title = document.getElementById('popup-title');
+        var text = document.getElementById('popup-text');
+
+        var email = document.getElementById("emailSenha").value;
+        var dominio = email.substr(email.length-14, 14);
+
+        if (email == "" || dominio !== "etec.sp.gov.br" ){
+            title.innerHTML = `<h1>Enviando..<span class="close" id="close-button">&times;</span></h1>`;
+            text.innerHTML = `<p>Email inválido.</p>`;
+        }else{
+            title.innerHTML = `<h1>Enviando..<span class="close" id="close-button">&times;</span></h1>`;
+            text.innerHTML = `<div class="spinner-border text-info" role="status"></div>`;
+        }
+
+        //Renderizando o pop-up na página
+        element.classList.add('show-popup');
+
+        //Captura do botão de fechamento do pop-up
+        var close = document.getElementById('close-button');
+        
+        //Evento para fechar o pop-up e redirecionar para aplicação
+        close.addEventListener('click', function() {
+
+            //Função para fechar pop-up
+            hideModal();
+
+        })
+        
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            hideModal();
+            // Geração do Modal Pop-up na Página
+        
+            title.innerHTML = `<h1>Enviado!<span class="close" id="close-button">&times;</span></h1>`;
+            text.innerHTML = `<p>Seu email foi enviado, por favor verifique sua caixa de entrada.</p>`;
+
+            //Renderizando o pop-up na página
+            element.classList.add('show-popup');
+
+            //Captura do botão de fechamento do pop-up
+            var close = document.getElementById('close-button');
+            
+            //Evento para fechar o pop-up e redirecionar para aplicação
+            close.addEventListener('click', function() {
+
+                //Função para fechar pop-up
+                hideModal();
+
+            })
+        }).catch((error) => {
+            hideModal();
+            //fazer switch para tratamento de erro
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+        });
+    }
+}
 
 /*
 //Modal

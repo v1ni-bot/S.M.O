@@ -85,7 +85,7 @@ onAuthStateChanged(auth, (user) => {
   })
 
   window.DeletarChamado = async function(documento){
-    await deleteDoc(doc(db, "ocorrencias", documento.id));
+    await deleteDoc(doc(db, "chamados", documento.id));
     window.location.reload();
   }
 

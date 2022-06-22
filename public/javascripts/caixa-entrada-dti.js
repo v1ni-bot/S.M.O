@@ -11,6 +11,9 @@ const q = query(collection(db, "chamados"), where("tipo", "==", "DTI"));
 const unsubscribe = onSnapshot(q, (querySnapshot) => {
   var chamado = '';
   var popups = '';
+  var vazio = '';
+  popup.innerHTML = vazio;
+    section.innerHTML = vazio;
   querySnapshot.forEach((doc) => {
     switch(doc.data().prioridade){
       case "Alta":
@@ -46,7 +49,7 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
           </div>
           <div class="popup-text" id="popup-text">
             <p>Data de criação: ${doc.data().created_at.toDate()}</p>
-            <p>Data de modificação: ${update}</p>
+            <p>Data de modificação: ${doc.data().update}</p>
             <p>Problema: ${doc.data().problema}</p>
             <p>Descrição: ${doc.data().descricao}</p>
             <p>Área: ${doc.data().tipo}</p>
@@ -116,8 +119,9 @@ window.hideModal = async function(){
 };
 
 window.hideChamado = async function(popup){
+  console.log(popup);
   var element = document.getElementById(popup.id);
-  element.classList.remove('show-popup');
+  popup.classList.remove('show-popup');
 };
 
 //--------------------------------------------Função abre Modal Pop-up-----------------------------------------------------
