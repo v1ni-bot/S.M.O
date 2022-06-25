@@ -63,6 +63,7 @@ onAuthStateChanged(auth, (user) => {
                 modulo.innerHTML = selected
                 
                 console.log("Dados carregados.");
+
             })
         })
     }
@@ -103,6 +104,29 @@ window.salvarDados = async function(){
                 });
             }
             
+            //Captura dos elementos do Modal Pop-up na página
+            var element = document.getElementById('popup');
+            var title = document.getElementById('popup-title');
+            var text = document.getElementById('popup-text');
+
+            //Estrutura de decisão do erro para geração do Modal Pop-up na Página
+    
+        
+            title.innerHTML = `<h1>Salvo com sucesso.<span class="close" id="close-button">&times;</span></h1>`;
+            text.innerHTML = `<p>Seus dados foram salvos com sucesso.</p>`;
+
+            //Renderizando o pop-up na página
+            element.classList.add('show-popup');
+
+            //Captura do botão de fechamento do pop-up
+            var close = document.getElementById('close-button');
+            
+            //Evento para fechar o pop-up e redirecionar para aplicação
+            close.addEventListener('click', function() {
+
+                //Função para fechar pop-up
+                hideModal();
+            });
         }
     });
 }
@@ -123,6 +147,29 @@ window.redefinirSenha = async function() {
             });
         }
     });
+    //Captura dos elementos do Modal Pop-up na página
+    var element = document.getElementById('popup');
+    var title = document.getElementById('popup-title');
+    var text = document.getElementById('popup-text');
+
+    //Estrutura de decisão do erro para geração do Modal Pop-up na Página
+
+
+    title.innerHTML = `<h1>Enviado com sucesso.<span class="close" id="close-button">&times;</span></h1>`;
+    text.innerHTML = `<p>Seu email foi enviado com sucesso.</p>`;
+
+    //Renderizando o pop-up na página
+    element.classList.add('show-popup');
+
+    //Captura do botão de fechamento do pop-up
+    var close = document.getElementById('close-button');
+    
+    //Evento para fechar o pop-up e redirecionar para aplicação
+    close.addEventListener('click', function() {
+
+        //Função para fechar pop-up
+        hideModal();
+    });
 }
 
 if(buttonSalvar){
@@ -136,6 +183,29 @@ if(buttonSenha){
         window.redefinirSenha();
     })
 }
+
+//--------------------------------------------Função fecha Modal Pop-up-----------------------------------------------------
+window.hideModal = async function(){
+    var element = document.getElementById('popup');
+    element.classList.remove('show-popup');
+  };
+  
+  window.hideChamado = async function(popup){
+    console.log(popup);
+    var element = document.getElementById(popup.id);
+    popup.classList.remove('show-popup');
+  };
+  
+  //--------------------------------------------Função abre Modal Pop-up-----------------------------------------------------
+  window.showChamado = async function(popup){
+    var element = document.getElementById(popup.id);
+    element.classList.add('show-popup');
+  };
+  
+  window.showModal = async function(){
+    var element = document.getElementById('popup');
+    element.classList.add('show-popup');
+  };
 
 
 //await deleteDoc(doc(db, "cities", "DC"));
