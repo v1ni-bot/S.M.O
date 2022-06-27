@@ -208,4 +208,12 @@ window.hideModal = async function(){
   };
 
 
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if(user.email == "gabriela.santos958@etec.sp.gov.br"){
+            var footer = document.getElementById('footer');
+            footer.innerHTML = `<p>Obrigado por ser você ❤️</p>`
+        }
+    }
+});
 //await deleteDoc(doc(db, "cities", "DC"));
